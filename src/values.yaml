@@ -11,7 +11,6 @@ image:
   repository: monokal/tinyproxy
 ingress:
   annotations:
-    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
     cert-manager.io/cluster-issuer: jiangsier-tinyproxy-letsencrypt-http01
   className: nginx
   enabled: false
@@ -31,8 +30,8 @@ resources:
   limits: {}
   requests: {}
 service:
-  type: LoadBalancer
   port: 8888
+  type: LoadBalancer
 serviceAccount:
   create: true
   automount: false
